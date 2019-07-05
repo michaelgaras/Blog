@@ -72,3 +72,7 @@ gem 'pry-rails'
 
 # Password Authentication
 gem 'bcrypt', '~> 3.1.7'
+
+# Pagination
+gem 'will_paginate', '3.1.5'
+gem 'bootstrap-will_paginate', '1.0.0'
