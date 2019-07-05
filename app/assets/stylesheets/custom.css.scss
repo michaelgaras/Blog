@@ -42,5 +42,9 @@ $navbar-default-bg: black;
 }
 
 .links {
-  color: 'white';
+  color: white !important;
+}
+
+.links:hover {
+  color: grey !important;
 }
