@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= render 'layouts/navigation' %>
     <title>Blog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,11 +10,8 @@
   </head>
 
   <body>
-    <% flash.each do |name, msg| %>
-      <ul>
-        <li><%= msg %></li>
-      </ul>
-    <% end %>
+    <%= render 'layouts/navigation' %>
+    <%= render 'shared/messages' %>
     <%= yield %>
   </body>
 </html>
