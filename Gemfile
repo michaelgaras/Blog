@@ -69,3 +69,6 @@ gem 'jquery-rails'
 # Binding.pry
 gem 'pry', '~> 0.12.2'
 gem 'pry-rails'
+
+# Password Authentication
+gem 'bcrypt', '~> 3.1.7'
