@@ -19,6 +19,14 @@
       </div>
     </div>
     <div class="form-group">
+      <div class="control-label col-sm-2">
+        <%= f.label :Private? %>
+      </div>
+      <div class="col-sm-6">
+        <%= f.check_box :private, class: "form-checkbox" %>
+      </div>
+    </div>
+    <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <%= f.submit class: 'btn btn-primary btn-large' %>
       </div>

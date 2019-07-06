@@ -50,3 +50,37 @@ $navbar-default-bg: #337ab7;
 }
 .mike-h1 { color: #2A293E; font-family: "Great Vibes", cursive; font-size: 65px; line-height: 160px; font-weight: normal; margin-bottom: 0px; margin-top: 40px; text-align: center; text-shadow: 0 1px 1px #fff; }
 .mike-h3 { color: #2A293E; font-family: "Great Vibes", cursive; font-size: 40px; line-height: 100px; font-weight: normal; margin-bottom: 0px; text-align: center; text-shadow: 0 1px 1px #fff; }
+
+.mike-checkbox {
+    width:30px;
+    height:30px;
+    border-radius:5px;
+    border:2px solid #555;
+}
+ .big-checkbox {
+   width: 30px !important;
+   height: 30px !important;
+ }
+
+ input[type=checkbox]
+ {
+   /* Double-sized Checkboxes */
+   -ms-transform: scale(2) !important; /* IE */
+   -moz-transform: scale(2) !important; /* FF */
+   -webkit-transform: scale(2) !important; /* Safari and Chrome */
+   -o-transform: scale(2) !important; /* Opera */
+   transform: scale(2) !important;
+   padding: 10px !important;
+ }
+
+ input[type=checkbox]::checked
+ {
+   background: black !important;
+ }
+
+.checkboxtext
+{
+  /* Checkbox text */
+  font-size: 110%;
+  display: inline;
+}

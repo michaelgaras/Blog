@@ -4,7 +4,7 @@
   </div>
 </div>
 <h3 class="mike-h3" align="center"><%= @user.username.capitalize %>'s Articles</h3>
-<%= render 'shared/article', obj: @user.articles %>
+<%= render 'shared/user_articles', obj: @user.articles %>
 <div align="center">
   <%= will_paginate @user_articles %>
 </div>

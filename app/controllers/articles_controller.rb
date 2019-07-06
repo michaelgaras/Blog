@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    if @article.user.username == current_user
+    if @article.user.username == current_user.username
       @article.destroy
       flash[:success] = 'Article was deleted'
     else
@@ -53,6 +53,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :description)
+    params.require(:article).permit(:title, :description, :private)
   end
 end
