@@ -12,12 +12,12 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 5)
   end
 
   def create
     @article = Article.new(article_params)
-    @article.user = User.first
+    @article.user = current_user
     if @article.save
       flash[:success] = 'Article was successfully created'
       redirect_to article_path(@article)
@@ -27,8 +27,12 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article.destroy
-    flash[:success] = 'Article was deleted'
+    if @article.user.username == current_user
+      @article.destroy
+      flash[:success] = 'Article was deleted'
+    else
+      flash[:danger] = 'Only the Article creator can delete the Post'
+    end
     redirect_to articles_path
   end
 

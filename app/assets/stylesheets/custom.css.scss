@@ -1,4 +1,4 @@
-$navbar-default-bg: black;
+$navbar-default-bg: #337ab7;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 #logo {
@@ -46,5 +46,7 @@ $navbar-default-bg: black;
 }
 
 .links:hover {
-  color: grey !important;
+  color: lightgrey !important;
 }
+.mike-h1 { color: #2A293E; font-family: "Great Vibes", cursive; font-size: 65px; line-height: 160px; font-weight: normal; margin-bottom: 0px; margin-top: 40px; text-align: center; text-shadow: 0 1px 1px #fff; }
+.mike-h3 { color: #2A293E; font-family: "Great Vibes", cursive; font-size: 40px; line-height: 100px; font-weight: normal; margin-bottom: 0px; text-align: center; text-shadow: 0 1px 1px #fff; }

@@ -1,5 +1,5 @@
-<h1>Create an article</h1>
-
-<%= render 'form' %>
-
-<td><%= link_to 'Home', root_path %></td>
+<% if logged_in? %>
+  <%= render 'form' %>
+<% else %>
+  <%= require_user %>
+<% end %>
