@@ -6,4 +6,12 @@ class Article < ActiveRecord::Base
 
   belongs_to :user
   validates :user_id, presence: true
+
+  def self.search(search)
+    if search
+      Article.where.any_of('title LIKE ?', "%#{search}%")
+    else
+      Article.where(private: false)
+    end
+  end
 end

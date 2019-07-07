@@ -18,24 +18,24 @@
         <li><%= link_to "Create Article", new_article_path, class: "links" %></li>
         <li><%= link_to "Users", users_path, class: "links" %></li>
       </ul>
-      <form class="navbar-form navbar-left">
-        <input type="text" class="form-control" placeholder="Search">
-        <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
-          <li><%= link_to current_user.username.capitalize+"'s Blog", user_path(current_user), class: "links" %></li>
+      <%= form_tag('/articles', method: :get, class:"navbar-form navbar-left") do %>
+      <%= text_field_tag :search, params[:search], class:"form-control" %>
+      <%= submit_tag "Search", :name => nil, class:"btn btn-outline-success my-2 my-sm-0" %>
+    <% end %>
+    <ul class="nav navbar-nav navbar-right">
+      <% if logged_in? %>
+        <li><%= link_to current_user.username.capitalize+"'s Blog", user_path(current_user), class: "links" %></li>
 
-          <li><%= link_to "Log out", logout_path, class: "links", method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Log in", login_path, class: "links" %></li>
-        <% end %>
-        <li><%= link_to "Sign Up", signup_path, class: "links" %></li>
-        <!-- <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a> <ul class="dropdown-menu"> <li> <a href="#">Action</a> </li> <li>
-        <!-- <a href="#">Another action</a> </li> <li> <a href="#">Something else here</a> </li> <li role="separator" class="divider"></li> <li> <a href="#">Separated link</a> </li> </ul> </li> -->
-      </ul>
-    </div>
-    <!-- /.navbar-collapse -->
+        <li><%= link_to "Log out", logout_path, class: "links", method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Log in", login_path, class: "links" %></li>
+      <% end %>
+      <li><%= link_to "Sign Up", signup_path, class: "links" %></li>
+      <!-- <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a> <ul class="dropdown-menu"> <li> <a href="#">Action</a> </li> <li>
+      <!-- <a href="#">Another action</a> </li> <li> <a href="#">Something else here</a> </li> <li role="separator" class="divider"></li> <li> <a href="#">Separated link</a> </li> </ul> </li> -->
+    </ul>
   </div>
-  <!-- /.container-fluid -->
+  <!-- /.navbar-collapse -->
+</div>
+<!-- /.container-fluid -->
 </nav>
