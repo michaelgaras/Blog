@@ -4,7 +4,11 @@
   </div>
 </div>
 <h3 class="mike-h3" align="center"><%= @user.username.capitalize %>'s Articles</h3>
-<%= render 'shared/user_articles', obj: @user.articles %>
+<% if @user == current_user %>
+  <%= render 'shared/user_articles', obj: @user.articles %>
+<% else %>
+  <%= render 'shared/user_articles', obj: @user.articles.where(:private=>false) %>
+<% end %>
 <div align="center">
   <%= will_paginate @user_articles %>
 </div>

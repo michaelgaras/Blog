@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.paginate(page: params[:page], per_page: 5)
+    @articles = Article.paginate(page: params[:page], per_page: 6)
   end
 
   def create
@@ -48,7 +48,12 @@ class ArticlesController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit
+    unless @article.user == current_user
+      redirect_to users_path
+      flash[:danger] = 'Only the Article creator can edit the Post'
+    end
+  end
 
   private
 
