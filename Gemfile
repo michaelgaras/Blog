@@ -81,3 +81,7 @@ gem 'kaminari'
 
 # Query ORs
 #gem 'activerecord_any_of'
+
+# CORS
+# gem 'rack-cors'
+
