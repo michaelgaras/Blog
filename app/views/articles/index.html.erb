@@ -1,4 +1,10 @@
 <div align="center">
-  <%= will_paginate %>
+  <%= form_tag('/articles', method: :get, class:"navbar-form navbar-center") do %>
+  <%= text_field_tag :search, params[:search], class:"form-control" %>
+  <%= submit_tag "Search", :name => nil, class:"mike-btn btn btn-outline-success my-2 my-sm-0" %>
+  <br></br>
+
+<% end %>
+<%= will_paginate %>
 </div>
 <%= render 'shared/article', obj: @articles %>
