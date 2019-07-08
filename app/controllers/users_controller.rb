@@ -26,7 +26,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page], per_page: 5)
+    @users = User.search(params[:search])
+    @users = @users.paginate(page: params[:page], per_page: 5)
   end
 
   def update
@@ -39,6 +40,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def addfriend
+    current_user.friends.push(params[:friend])
+    current_user.save
+  end
+
+  def show_friends
+    binding.pry
+  end
   # Never trust parameters from the scary internet, only allow the white list through.
 
   private
