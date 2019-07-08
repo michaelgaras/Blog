@@ -18,11 +18,13 @@
         </li>
         <li>
           <% unless user == current_user %>
-            <% unless current_user.friends.include?(user.username) %>
-              <%= link_to "Add Friend", users_addfriend_path(:friend=> user.username), method: 'post', class: "btn btn-xs btn-primary" %>
-            <% else %>
-              <button type="button" class="btn btn-xs btn-success">Friend Added
-              </button>
+            <% if logged_in? %>
+              <% unless current_user.friends.include?(user.username) %>
+                <%= link_to "Add Friend", users_addfriend_path(:friend=> user.username), method: 'post', class: "btn btn-xs btn-primary" %>
+              <% else %>
+                <button type="button" class="btn btn-xs btn-success">Friend Added
+                </button>
+              <% end %>
             <% end %>
           <% end  %>
         </li>
