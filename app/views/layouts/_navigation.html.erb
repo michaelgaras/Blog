@@ -25,7 +25,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <% if logged_in? %>
                   <li><%= link_to current_user.username.capitalize+"'s Blog", user_path(current_user), class: "links" %></li>
-                  <!-- <li><%#= link_to "Friends", users_friends_path, class: "links" %></li> -->
+                  <li><%= link_to "Friends", friends_path, class: "links" %></li>
                   <li><%= link_to "Log out", logout_path, class: "links", method: :delete %></li>
                 <% else %>
                   <li><%= link_to "Log in", login_path, class: "links" %></li>

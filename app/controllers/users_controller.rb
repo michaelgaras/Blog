@@ -43,10 +43,18 @@ class UsersController < ApplicationController
   def addfriend
     current_user.friends.push(params[:friend])
     current_user.save
+    redirect_to users_path
+  end
+
+  def removefriend
+    current_user.friends.delete(params[:friend])
+    current_user.save
+    redirect_to friends_path
   end
 
   def show_friends
-    binding.pry
+    @users = User.all.where(username: current_user.friends)
+    @users = @users.paginate(page: params[:page], per_page: 5)
   end
   # Never trust parameters from the scary internet, only allow the white list through.
 
