@@ -14,10 +14,11 @@ class ArticlesController < ApplicationController
   def index
     # @articles = Article.paginate(page: params[:page], per_page: 6)
     @articles = Article.search(params[:search])
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @articles }
-    end
+    # render json: @articles
+    # respond_to do |format|
+    #   format.html # show.html.erb
+    #   format.json { render json: @articles }
+    # end
     @articles = @articles.paginate(page: params[:page], per_page: 5)
 
     # render json: @articles

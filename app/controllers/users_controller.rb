@@ -27,6 +27,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.search(params[:search])
+    # render json: @users
     @users = @users.paginate(page: params[:page], per_page: 5)
   end
 
