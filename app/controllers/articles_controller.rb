@@ -2,9 +2,17 @@
 
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[edit update show destroy]
+  before_action :set_gravatar, only: %i[index]
 
   def set_article
     @article = Article.find(params[:id])
+  end
+
+  def set_gravatar
+    articles = Article.all
+    articles.each do |article|
+      article.update(gravatar: article.user.gravatar)
+    end
   end
 
   def new
@@ -62,6 +70,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :description, :private)
+    params.require(:article).permit(:title, :description, :private, :gravatar)
   end
 end
