@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ArticlesController < ApplicationController
+class Api::V1::ArticlesController < ApplicationController
   before_action :set_article, only: %i[edit update show destroy]
 
   def set_article
@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
   def index
     # @articles = Article.paginate(page: params[:page], per_page: 6)
     @articles = Article.search(params[:search])
+    render json: @articles
     @articles = @articles.paginate(page: params[:page], per_page: 5)
 
     # render json: @articles
@@ -59,9 +60,9 @@ class ArticlesController < ApplicationController
     end
   end
 
-  private
+    private
 
   def article_params
     params.require(:article).permit(:title, :description, :private)
   end
-end
+  end

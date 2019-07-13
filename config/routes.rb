@@ -1,14 +1,30 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :articles
   root 'pages#index'
+
+  # API routes
+  namespace :api do
+    namespace :v1 do
+      resources :articles
+      resources :users
+    end
+  end
+
+  # Aritcles routes
+  resources :articles
+
+  # Users routes
+  resources :users, except: [:new]
+
+  # Authentication routes
   get 'about', to: 'pages#about'
   get 'signup', to: 'users#new'
-  resources :users, except: [:new]
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+
+  # Friends routes
   post 'users/addfriend', to: 'users#addfriend'
   get 'friends', to: 'users#show_friends'
   delete 'removefriend', to: 'users#removefriend'

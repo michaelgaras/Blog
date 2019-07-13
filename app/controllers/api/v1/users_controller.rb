@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
@@ -27,6 +27,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.search(params[:search])
+    render json: @users
     @users = @users.paginate(page: params[:page], per_page: 5)
   end
 
