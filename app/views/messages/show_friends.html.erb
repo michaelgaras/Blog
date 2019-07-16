@@ -17,7 +17,7 @@
           <small><%= pluralize(user.articles.count, "article") if user.articles %></small>
         </li>
         <li>
-          <%= link_to "Send Message", new_message_path(:from=> current_user.username, :to=>user.username), method: 'get', class: "btn btn-xs btn-primary" %>
+          <%= link_to "Send Message", message_path(:from=> current_user.username, :to=>user.username), method: 'post', class: "btn btn-xs btn-primary" %>
           <%= link_to "Remove Friend", removefriend_path(:friend=> user.username), method: 'delete', class: "btn btn-xs btn-danger" %>
         </li>
       </div>

@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   # Users routes
   resources :users, except: [:new]
 
+  # Messages routes
+  resources :messages
+
   # Authentication routes
   get 'about', to: 'pages#about'
   get 'signup', to: 'users#new'
@@ -27,7 +30,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   # Friends routes
-  post 'users/addfriend', to: 'users#addfriend'
+  post 'addfriend', to: 'users#addfriend'
   get 'friends', to: 'users#show_friends'
   delete 'removefriend', to: 'users#removefriend'
 end

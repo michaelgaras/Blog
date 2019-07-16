@@ -1,6 +1,6 @@
 <head>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 </head>
 
 <nav class="navbar navbar-default">
@@ -32,15 +32,16 @@
               <ul class="nav navbar-nav navbar-right">
                 <% if logged_in? %>
                   <li><%= link_to current_user.username.capitalize+"'s Blog", user_path(current_user), class: "links" %></li>
+                  <li><%= link_to "Messages", messages_path, class: "links" %></li>
                   <li><%= link_to "Friends", friends_path, class: "links" %></li>
                   <li><%= link_to "Log out", logout_path, class: "links", method: :delete %></li>
                 <% else %>
                   <li><%= link_to "Log in", login_path, class: "links" %></li>
                 <% end %>
                 <li class="mike-signup">
-                    <i class='fa fa-user' style='display: inline; color: white; font-size:15px'></i>
-                    <%= link_to "Sign Up", signup_path, style: "padding-left: 1px; padding-right: 1px; display:inline", class: "links" %>
-                  </li>
+                  <i class='fa fa-user' style='display: inline; color: white; font-size:15px'></i>
+                  <%= link_to "Sign Up", signup_path, style: "padding-left: 1px; padding-right: 1px; display:inline", class: "links" %>
+                </li>
                 <!-- <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a> <ul class="dropdown-menu"> <li> <a href="#">Action</a> </li> <li>
                 <!-- <a href="#">Another action</a> </li> <li> <a href="#">Something else here</a> </li> <li role="separator" class="divider"></li> <li> <a href="#">Separated link</a> </li> </ul> </li> -->
               </ul>
