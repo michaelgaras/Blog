@@ -22,6 +22,14 @@ class ArticlesController < ApplicationController
   def index
     # @articles = Article.paginate(page: params[:page], per_page: 6)
     @articles = Article.search(params[:search])
+    # render json: @articles
+    respond_to do |format|
+
+      format.html # show.html.erb
+      format.json { render json: @articles }
+    
+    end
+
     @articles = @articles.paginate(page: params[:page], per_page: 5)
 
     # render json: @articles
@@ -39,7 +47,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    if @article.user.username == current_user.username
+    if logged_in? && (@article.user.username == current_user.username)
       @article.destroy
       flash[:success] = 'Article was deleted'
     else
@@ -62,7 +70,7 @@ class ArticlesController < ApplicationController
 
   def edit
     unless @article.user == current_user
-      redirect_to users_path
+      redirect_to articles_path
       flash[:danger] = 'Only the Article creator can edit the Post'
     end
   end
