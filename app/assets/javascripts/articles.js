@@ -1,5 +1,5 @@
-$(function() {
-    $('.article-body').click(()=>{
-        alert('clicked')
-    });
-});
+// $(function() {
+//     $('.article-body').click(()=>{
+//         alert('clicked')
+//     });
+// });
