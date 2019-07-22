@@ -1,6 +1,6 @@
 # README
 
-## Michael's Blog: `http://mlg-blog.herokuapp.com`
+## Michael's Blog Live Demo: http://mlg-blog.herokuapp.com
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
