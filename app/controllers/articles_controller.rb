@@ -19,20 +19,30 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
-  def index
-    # @articles = Article.paginate(page: params[:page], per_page: 6)
-    @articles = Article.search(params[:search])
-    # render json: @articles
-    respond_to do |format|
+  # def index
+  #   # @articles = Article.paginate(page: params[:page], per_page: 6)
+  #   @articles = Article.search(params[:search])
+  #   # render json: @articles
+  #   respond_to do |format|
 
+  #     format.html # show.html.erb
+  #     format.json { render json: @articles }
+  #     format.js
+    
+  #   end
+
+  #   @articles = @articles.paginate(page: params[:page], per_page: 5)
+
+  #   # render json: @articles
+  # end
+
+  def index
+    @articles = Article.all
+    respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @articles }
-    
+      format.js
     end
-
-    @articles = @articles.paginate(page: params[:page], per_page: 5)
-
-    # render json: @articles
   end
 
   def create

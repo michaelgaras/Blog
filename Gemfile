@@ -85,3 +85,8 @@ gem 'kaminari'
 # CORS
 # gem 'rack-cors'
 
+# jquery
+#gem 'jquery-datatables'
+gem 'rails-assets-jquery', source: 'https://rails-assets.org'
+gem 'rails-assets-datatables', source: 'https://rails-assets.org'
+

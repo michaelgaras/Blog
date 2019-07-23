@@ -1,5 +1,5 @@
-// $(function() {
-//     $('.article-body').click(()=>{
-//         alert('clicked')
-//     });
-// });
+$(function() {
+    $('#search').keyup((event)=>{
+        console.log(event.target.value)
+    });
+});

@@ -14,6 +14,14 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery
+//= require datatables
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+$(document).on('turbolinks:load', function (){
+    $("table[role='datatable']").each(function(){
+        $(this).DataTable({});
+    })
+})
